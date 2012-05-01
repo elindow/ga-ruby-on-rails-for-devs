@@ -5,12 +5,15 @@ class HelloWorld
 
 
 	def call(env)
-		puts env.to_s
+		#puts env.to_s
 		#puts Dir.pwd
 	begin
 		filename = env["PATH_INFO"]
+		ct = "text/html"
+		#if File.fnmatch('*.png',filename.path) then 
+		ct = "image/png"
 	
-		[200, {"Content type" => "text/html"}, [filename,"\n",File.read(Dir.pwd+filename)]]
+		[200, {"Content type" => ct}, [filename,"\n",File.read(Dir.pwd+filename)]]
 	
 	rescue Errno::EACCES
 			[550, {"Content type" => "text/html"}, ["Permission denied"]]	
