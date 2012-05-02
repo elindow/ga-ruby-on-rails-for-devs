@@ -11,13 +11,15 @@ class HelloWorld
 		#puts "Original filename #{filename}"
 		#puts "Original path #{Dir.pwd}"
 		ext = File.extname(filename)
-		f = File.split(filename) 
-		size = filename.size
+ 		size = filename.size
+		#f = File.split(filename)
 		#puts "\n#{filename} : size= #{size}  : #{filename.to_s}"
 		#puts "Name= #{filename[-1]}  dir? = #{File.directory?(filename)}"
-		puts filename[-1] == "/"
-		#if ext == "" 
-		if filename[-1] == "/"
+		#puts filename[-1] == "/"
+		#dn =  File.dirname(filename)
+		filename = URI.decode(filename)
+		#puts Rack::Utils.parse_query(dn,d=" ")
+		if filename[-1] == "/" || ext == ""
 			filename += "/index.html"
 				end
 
