@@ -1,4 +1,7 @@
-﻿require "rubygems"
+﻿#basic Rack webserver
+#Eric Lindow
+
+require "rubygems"
 require "rack"
 
 class HelloWorld
