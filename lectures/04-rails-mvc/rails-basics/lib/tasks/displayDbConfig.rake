@@ -11,5 +11,6 @@
 		end
 =end
 	puts "Environment: #{Rails.env}"
+	puts info[Rails.env]
 	end
 end
