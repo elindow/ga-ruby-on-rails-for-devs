@@ -7,14 +7,20 @@ class HelloWorld
 	begin
 		filename = env["PATH_INFO"]
 		ext = File.extname(filename)
- 		size = filename.size
+ 		size = File.size(filename)
+		puts size
 		filename = URI.decode(filename)
 		if filename[-1] == "/" || ext == ""		#I know this isn't right though it works in this context
 			filename += "/index.html"
 				end
-		ct = "text/html"
-		if ext == ".png" then ct = "image/png" end
-		if ext == ".jpg" then ct = "image/jpg" end			
+		MIME_TYPES = {
+			".html" => "text/html",
+			".png" => "image/png"
+			".jpg" => "image/jpg"
+			}
+
+		ct = MIME_TYPES[ext] || "text/html"
+
 		[200, {"Content type" => ct, "Content length" => size.to_s}, [File.binread(Dir.pwd+filename)]]
 	
 	rescue Errno::EACCES
