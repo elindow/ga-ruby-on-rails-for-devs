@@ -2,7 +2,11 @@ require 'spec_helper'
 
 describe Employee do
   context "validations" do
-    it { should validate_presence_of :name }
+	before(:each) do
+		@employee = Fabricate(:employee)
+	end
+    #it { should_validate_presence_of :name, :address, :start_date }
+	@employee.name should be_valid
     #TODO: Add validations for remaining fields
   end
 

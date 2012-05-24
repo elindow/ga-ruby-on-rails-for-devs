@@ -1,4 +1,5 @@
 Fabricator(:employee) do
   name { Faker::Name.name }
-  # TODO: populate other values
+  address { Faker::Address.address }
+  role_id { Fabricate.sequence(:role_id) { |i| i }}
 end

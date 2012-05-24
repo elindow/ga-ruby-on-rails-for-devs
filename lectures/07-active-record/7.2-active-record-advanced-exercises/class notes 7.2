@@ -1,0 +1,78 @@
+﻿Many to Many Associations
+
+i.e. 5 employees and 5 projects
+
+need a Join table i.e. EmployeeProject
+
+two columns
+
+empID  :: ProjectID
+1			1
+1			2
+2			2
+3			1
+
+pure join table only had foreign keys
+if other fields its a join table w/ payload
+
+Syntax
+
+Employee
+has_and_belongs_to_many :projects
+
+
+second way of doing it
+
+in emp
+	has_many :employee_projects
+	has_many :projects, through: :employees_projects
+	
+in projects
+	has_many :employee_projects
+	has_many :employees, through: :employee_projects
+	
+	create a new model called employee_projects
+	
+	employee_projects
+	
+	belongs_to :employee
+	belongs_to :projects
+	
+	
+Callbacks
+
+Inject a method into an AR at some point, i.e.
+
+before_validation :print_name
+after_validation
+before_save
+after_save
+after_commit
+
+you'd want to do this i.e. to fire off an email to confirm action
+
+private
+
+def print.name
+	puts name
+end
+
+Single table inheritance
+
+Widget Table
+
+Id	Name	Type
+1	j		"Desktop"
+2	d		"WebWidget"
+3	k		"MobileWidget"
+
+
+Observers:
+
+allows us to encapsulate callbacks in a separate file
+
+observing object creating and applying code as appropriate
+
+
+	
+	
