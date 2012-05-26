@@ -17,7 +17,9 @@ development:
   encoding: unicode
   database: active-record-basics_development
   pool: 5
-
+  username: postgres
+  password: rubyfordev
+  
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
@@ -41,9 +43,13 @@ test:
   encoding: unicode
   database: active-record-basics_test
   pool: 5
-
+  username: postgres
+  password: rubyfordev
+  
 production:
   adapter: postgresql
   encoding: unicode
   database: active-record-basics_production
   pool: 5
+  username: postgres
+  password: rubyfordev

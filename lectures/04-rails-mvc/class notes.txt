@@ -1,0 +1,60 @@
+﻿MVC
+
+model-view-controller
+
+crud
+create retrieve update destroy
+
+Test environment (not used)
+
+class Duck
+	def quack!  # or quack?
+		true
+	end
+end
+
+class DuckTest > ActiveSupport::TestCase
+	test "duck quacks" do
+		assert Duck.new.quack?
+	end
+end
+
+people don't like this, too functional, boring ... doesn't express well
+
+rspec
+
+BDD behavior driven development
+
+stories and scenarios (more complex)
+
+describe Duck do
+	it "should quack" do
+		Duck.new.quack.should_be_true
+	end
+end
+ declare what a duck is first
+describe Duck do
+	let(:duck) {duck.new}
+	it "should quack" do
+		Duck.should_
+		quack
+	end
+end
+
+if duck is swimming
+
+describe Duck do
+	let(:duck) {duck.new}
+	it "should quack" do
+	
+		Duck.should_
+		quack
+		
+		context "swimming" do
+			before :each do
+				duck.swim!
+			end
+	end
+end
+
+

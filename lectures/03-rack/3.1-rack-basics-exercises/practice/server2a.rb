@@ -3,7 +3,6 @@ require "rack"
 
 class HelloWorld
 
-
 	def call(env)
 		#puts env.to_s
 		#puts Dir.pwd
