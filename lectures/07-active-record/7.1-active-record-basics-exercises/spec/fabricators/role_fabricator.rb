@@ -1,4 +1,4 @@
 Fabricator(:role) do
-	department { Faker::Word.word }
-	name { Faker::Name.name }
+	name { Faker::Lorem.words(num = 1) }
+	department { Faker::Lorem.words(num = 1) }
 end
