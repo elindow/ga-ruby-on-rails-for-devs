@@ -10,7 +10,7 @@ context "validations" do
 
 context "associations" do
 
-		it { should belong_to(:role) }
+		it { should belong_to :role }
 	end
 
 context "fabricators" do

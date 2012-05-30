@@ -7,7 +7,7 @@ describe Role do
   end
 
   context "associations" do
-	it { should have_many(:employees) }
+	it { should have_many :employees }
    end
 
   context "fabricators" do
