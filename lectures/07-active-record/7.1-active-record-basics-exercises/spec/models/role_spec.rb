@@ -16,8 +16,8 @@ describe Role do
 		
 		@emp1 = Fabricate(:employee)
 		@emp2 = Fabricate(:employee)
-		@emp1.role_id = @role.id
-		@emp2.role_id = @role.id
+		@role.employees << @emp1
+		@role.employees << @emp2
 		
 		@emp1.role.name.should eq @role.name
 		@emp2.role.name.should eq @role.name

@@ -1,4 +1,4 @@
 Fabricator(:project) do
 	name { Faker::Name.name }
-	employee_count { Fabricate.sequence(:id) { |i| i } }
+	employees_count { 0 }
 end
