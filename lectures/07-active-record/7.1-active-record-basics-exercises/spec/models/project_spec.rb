@@ -19,17 +19,20 @@ describe Project do
   
   context "employees count" do 
 		it "should always be > 0" do
-			@proj = Fabricate(:project, :employees_count => -1)
+			@proj = Fabricate(:project, :employees_count => 0)
 			@emp = Fabricate(:employee)
 			@proj.employees << @emp
+			puts "after fab ec=>#{@proj.employees_count} ec1=>#{@proj.employees.count}"
 			
 			@proj.employees_count.should > 0 
 			end
 		it "should equal the count of employees on the project" do
-			@proj = Fabricate(:project, :employees_count => -1)
-			@emp = Fabricate(:employee)
-			@proj.employees << @emp
-			
+				@proj = Fabricate(:project, :employees_count => 0)
+				2.times do
+					@emp = Fabricate(:employee)
+					@proj.employees << @emp
+				end
+			puts "after fab ec=>#{@proj.employees_count} ec1=>#{@proj.employees.count}"			
 		    @proj.employees_count.should == @proj.employees.count 
 			end
   end
