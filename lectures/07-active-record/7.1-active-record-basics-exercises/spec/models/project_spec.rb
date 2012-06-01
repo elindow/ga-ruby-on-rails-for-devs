@@ -22,11 +22,11 @@ describe Project do
 			@proj = Fabricate(:project, :employees_count => 0)
 			@emp = Fabricate(:employee)
 			@proj.employees << @emp
-			puts "after fab ec=>#{@proj.employees_count} ec1=>#{@proj.employees.count}"
+			#puts "after fab ec=>#{@proj.employees_count} ec1=>#{@proj.employees.count}"
 			
 			@proj.employees_count.should > 0 
 			end
-		it "should equal the count of employees on the project" do
+		it "local variable should equal the db count of employees on the project" do
 				@proj = Fabricate(:project, :employees_count => 0)
 				2.times do
 					@emp = Fabricate(:employee)

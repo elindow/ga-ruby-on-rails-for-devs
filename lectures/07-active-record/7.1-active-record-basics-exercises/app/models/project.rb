@@ -4,12 +4,11 @@ class Project < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :employees_count
   
-  before_validation	:ensure_employees_count_is_positive
+  before_validation	:update_employees_count
   
   protected
-  def ensure_employees_count_is_positive
-		puts "bv ec=#{employees_count}" unless employees_count.nil?
-		puts "bv ec1=#{self.employees.count}"
+  def update_employees_count
+		employees_count = employees.count unless employees_count.nil?
   end
  
   include ActiveModel::Validations
