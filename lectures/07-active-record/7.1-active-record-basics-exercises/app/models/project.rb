@@ -13,6 +13,21 @@ class Project < ActiveRecord::Base
  
   include ActiveModel::Validations
   validates_with PValidator
+  
+  #ActiveRecord::Base.inheritance_column = "activerecordtype" 
+  def self.subclasses
+	[Hrp, Mp, Dp]
+  end  
+  
+  class Hrp < Project
+
+  end
+  
+  class Mp < Project
+  end
+  
+  class Dp < Project
+  end
  
   has_many :employee_projects
   has_many :employees, :through => :employee_projects
