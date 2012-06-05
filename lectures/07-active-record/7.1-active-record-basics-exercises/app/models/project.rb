@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   
   validates_presence_of :name
   validates_presence_of :employees_count
+  #validates_presence_of :type
   
   before_validation	:update_employees_count
   
@@ -14,21 +15,6 @@ class Project < ActiveRecord::Base
   include ActiveModel::Validations
   validates_with PValidator
   
-  #ActiveRecord::Base.inheritance_column = "activerecordtype" 
-  def self.subclasses
-	[Hrp, Mp, Dp]
-  end  
-  
-  class Hrp < Project
-
-  end
-  
-  class Mp < Project
-  end
-  
-  class Dp < Project
-  end
- 
   has_many :employee_projects
   has_many :employees, :through => :employee_projects
 end
