@@ -6,14 +6,14 @@ class Project < ActiveRecord::Base
   #validates_presence_of :type
   
   before_validation	:update_employees_count
-  
-  protected
+  validate :my_method
   def update_employees_count
-		employees_count = employees.count unless employees_count.nil?
+    puts "INSIDE BEFORE VALIDATION CALLBACK"
   end
- 
-  include ActiveModel::Validations
-  validates_with PValidator
+  def my_method
+  end
+  #include ActiveModel::Validations
+  #validates_with PValidator
   
   has_many :employee_projects
   has_many :employees, :through => :employee_projects

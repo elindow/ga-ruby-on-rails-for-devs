@@ -19,19 +19,23 @@ describe Project do
   
   context "employees count" do 
 		it "should always be > 0" do
-			@proj = Fabricate(:project, :employees_count => 0)
-			@emp = Fabricate(:employee)
-			@proj.employees << @emp
-			#puts "after fab ec=>#{@proj.employees_count} ec1=>#{@proj.employees.count}"
-			@proj.employees_count.should > 0 
+			proj = Fabricate(:project)
+			emp = Fabricate(:employee)
+			puts "before push e_c=>#{proj.employees_count} e.c1=>#{proj.employees.count}"
+			debugger
+			proj.employees << emp
+			debugger
+			puts "after push e_c=>#{proj.employees_count} e.c1=>#{proj.employees.count}"
+			proj.employees_count.should > 0 
 			end
 		it "local variable should equal the db count of employees on the project" do
 				@proj = Fabricate(:project, :employees_count => 0)
-				2.times do
+				6.times do
 					@emp = Fabricate(:employee)
 					@proj.employees << @emp
+					#puts "after fab ec=>#{@proj.employees_count} ec1=>#{@proj.employees.count}"	
 				end
-			#puts "after fab ec=>#{@proj.employees_count} ec1=>#{@proj.employees.count}"			
+					
 		    @proj.employees_count.should == @proj.employees.count 
 			end
   end

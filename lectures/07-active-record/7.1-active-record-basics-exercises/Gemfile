@@ -30,4 +30,5 @@ group :development, :test do
   gem 'fabrication'
   gem 'awesome_print'
   gem 'hirb'
+  gem 'debugger'
 end
