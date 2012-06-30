@@ -12,7 +12,6 @@ describe HrProject do
   it "should be valid" do
 	@proj = Fabricate(:project, :type => 'HrProject')
 	@proj.save
-	puts HrProject.last.type
 	HrProject.last.should be_valid
   end
 end

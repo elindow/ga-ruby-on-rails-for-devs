@@ -9,4 +9,9 @@ describe DevelopmentProject do
 	@proj = Fabricate(:project, :type => 'DevelopmentProject')  
 	DevelopmentProject.count.should eq 1
   end
+  it "should be valid" do
+	@proj = Fabricate(:project, :type => 'DevelopmentProject')
+	@proj.save
+	DevelopmentProject.last.should be_valid
+  end
 end

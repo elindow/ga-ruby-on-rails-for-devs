@@ -9,4 +9,9 @@ describe MarketingProject do
 	@proj = Fabricate(:project, :type => 'MarketingProject')  
 	MarketingProject.count.should eq 1
   end
+  it "should be valid" do
+	@proj = Fabricate(:project, :type => 'MarketingProject')
+	@proj.save
+	MarketingProject.last.should be_valid
+  end
 end
