@@ -9,4 +9,10 @@ describe HrProject do
 	@proj = Fabricate(:project, :type => 'HrProject')  
 	HrProject.count.should eq 1
   end
+  it "should be valid" do
+	@proj = Fabricate(:project, :type => 'HrProject')
+	@proj.save
+	puts HrProject.last.type
+	HrProject.last.should be_valid
+  end
 end

@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   
   validates_presence_of :name
   validates_presence_of :employees_count
+  #validates_presence_of :type
   
   before_validation	:update_employees_count
   
@@ -13,7 +14,6 @@ class Project < ActiveRecord::Base
  
   include ActiveModel::Validations
   validates_with PValidator
-  
   
   has_many :employee_projects
   has_many :employees, :through => :employee_projects
