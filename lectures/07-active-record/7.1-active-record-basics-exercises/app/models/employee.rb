@@ -5,7 +5,7 @@ class Employee < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :start_date
   
-  belongs_to :role
+  belongs_to :role, :counter_cache => true
   has_many :employee_projects
   has_many :projects, :through => :employee_projects 
 end
